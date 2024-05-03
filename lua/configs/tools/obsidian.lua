@@ -3,8 +3,8 @@ local map = vim.keymap.set
 local options = {
   workspaces = {
     {
-      name = "personal",
-      path = "~/notes/personal",
+      name = "education",
+      path = "~/notes/education",
     },
     {
       name = "programming",
