@@ -171,7 +171,7 @@ map("n", "<leader>dd", ":BufDel<CR>", { silent = true, noremap = true })
 map(
   "n",
   "gh",
-  ":lua require('configs.lspconfig').toggle_inlay_hints()<CR>",
+  ":lua require('configs.lsp.lspconfig').toggle_inlay_hints()<CR>",
   { silent = true, noremap = true, desc = "Toggle Inlay Hints" }
 )
 
