@@ -3,12 +3,8 @@ local map = vim.keymap.set
 local options = {
   workspaces = {
     {
-      name = "programming",
-      path = "~/notes/programming",
-    },
-    {
-      name = "thoughts",
-      path = "~/notes/thoughts/",
+      name = "notes",
+      path = "~/notes",
     },
   },
 
@@ -22,9 +18,11 @@ local options = {
     end
   end,
 
+  disable_frontmatter = true,
+
   note_frontmatter_func = function(note)
     -- This is equivalent to the default frontmatter function.
-    local out = { id = note.id, aliases = note.aliases, tags = note.tags, area = "", project = "" }
+    local out = { id = note.id, aliases = note.aliases, tags = note.tags }
 
     -- `note.metadata` contains any manually added fields in the frontmatter.
     -- So here we just make sure those fields are kept in the frontmatter.
@@ -85,9 +83,7 @@ local options = {
     -- Oil remap (only for obsidian files)
     map("n", "<leader>o", ""),
     map("n", "<leader>oo", ":Oil --float<CR>", { silent = true, remap = true }),
-
     map("n", "<leader>op", ":ObsidianOpen<CR>", { silent = true, desc = "Obsidian open in app" }),
-
     map("n", "<leader>on", ":ObsidianNew ", { silent = true, desc = "Create a new note" }),
 
     map(
