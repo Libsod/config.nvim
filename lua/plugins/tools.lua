@@ -174,8 +174,8 @@ return {
     "epwalsh/obsidian.nvim",
     version = "*",
     event = {
-      "FileReadPre " .. vim.fn.expand "~" .. "/notes/**.*",
-      "BufNewFile " .. vim.fn.expand "~" .. "/notes/**.*",
+      "BufEnter " .. vim.fn.expand "~" .. "/notes/*",
+      "BufNewFile " .. vim.fn.expand "~" .. "/notes/*",
     },
     config = function()
       require "configs.tools.obsidian"
