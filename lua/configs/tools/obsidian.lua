@@ -10,6 +10,10 @@ local options = {
       name = "programming",
       path = "~/notes/programming",
     },
+    {
+      name = "thoughts",
+      path = "~/notes/thoughts/",
+    },
   },
 
   wiki_link_func = function(opts)
