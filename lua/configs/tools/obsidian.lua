@@ -3,10 +3,6 @@ local map = vim.keymap.set
 local options = {
   workspaces = {
     {
-      name = "education",
-      path = "~/notes/education",
-    },
-    {
       name = "programming",
       path = "~/notes/programming",
     },
@@ -151,7 +147,7 @@ local options = {
       "n",
       "<leader>os",
       ":ObsidianSearch<CR>",
-      { silent = true, desc = "Insert a template from the templates folder" }
+      { silent = true, desc = "Search for (or create) notes in vault using rg" }
     ),
 
     map(
