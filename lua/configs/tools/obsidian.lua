@@ -34,7 +34,7 @@ local options = {
         suffix = suffix .. string.char(math.random(65, 90))
       end
     end
-    return tostring(os.time()) .. "-" .. suffix
+    return tostring(os.date "%Y%m%d%H%M") .. "-" .. suffix
   end,
 
   daily_notes = {
@@ -70,7 +70,7 @@ local options = {
     map("n", "<leader>o", ""),
     map("n", "<leader>oo", ":Oil --float<CR>", { silent = true, remap = true }),
     map("n", "<leader>op", ":ObsidianOpen<CR>", { silent = true, desc = "Obsidian open in app" }),
-    map("n", "<leader>on", ":ObsidianNew ", { silent = true, desc = "Create a new note" }),
+    map("n", "<leader>on", ":ObsidianNew<CR>", { silent = true, desc = "Create a new note" }),
 
     map(
       "n",
@@ -116,7 +116,7 @@ local options = {
       { silent = true, desc = "Open/create the daily note for tomorrow" }
     ),
 
-    map("n", "<leader>od", ":ObsidianDailies ", { silent = true, desc = "Open up a picker list of daily notes" }),
+    map("n", "<leader>od", ":ObsidianDailies<CR>", { silent = true, desc = "Open up a picker list of daily notes" }),
 
     map(
       "n",
@@ -133,13 +133,13 @@ local options = {
     ),
 
     map(
-      "n",
+      "v",
       "<leader>oll",
-      ":ObsidianLink ",
+      ":ObsidianLink<CR>",
       { silent = true, desc = "Link an inline visual selection of text to a note" }
     ),
 
-    map("n", "<leader>oln", ":ObsidianLinkNew ", {
+    map("v", "<leader>oln", ":ObsidianLinkNew<CR>", {
       silent = true,
       desc = "Create a new note and link it to an inline visual selection of text",
     }),
@@ -149,12 +149,12 @@ local options = {
       desc = "Collect all links within the current buffer into a picker window",
     }),
 
-    map("n", "<leader>oe", ":ObsidianExtractNote ", {
+    map("v", "<leader>oe", ":ObsidianExtractNote<CR>", {
       silent = true,
       desc = "Extract the visually selected text into a new note and link to it",
     }),
 
-    map("n", "<leader>ow", ":ObsidianWorkspace ", {
+    map("n", "<leader>ow", ":ObsidianWorkspace<CR>", {
       silent = true,
       desc = "Switch to another workspace",
     }),
@@ -164,7 +164,7 @@ local options = {
       desc = "Paste an image from the clipboard into the note at the cursor position",
     }),
 
-    map("n", "<leader>or", ":ObsidianRename ", {
+    map("n", "<leader>or", ":ObsidianRename<CR>", {
       silent = true,
       desc = "Rename the note of the current buffer or reference under the cursor",
     }),
