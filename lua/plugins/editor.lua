@@ -77,8 +77,8 @@ return {
   {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble", "TroubleRefresh" },
-    opts = function()
-      return require "configs.editor.trouble"
+    config = function()
+      require "configs.editor.trouble"
     end,
   },
 

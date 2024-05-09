@@ -54,4 +54,4 @@ local options = {
   use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
 }
 
-return options
+return require("trouble").setup(options)
