@@ -3,9 +3,6 @@ local map = vim.keymap.set
 -- Faster opening of vim-cli mode
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
--- More convenient escape
-map("i", "jk", "<ESC>")
-
 -- Navigation in insert mode
 map("i", "<C-b>", "<ESC>^i", { desc = "Move Beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "Move End of line" })
