@@ -9,7 +9,6 @@ local lspconfig = require "lspconfig"
 
 -- File-based lsp configs
 require "configs.lsp.server_configs.clangd"
-require "configs.lsp.server_configs.tsserver"
 require "configs.lsp.server_configs.ruff_lsp"
 
 local servers = {

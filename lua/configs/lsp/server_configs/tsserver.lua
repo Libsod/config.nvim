@@ -2,113 +2,75 @@ local on_attach = require("configs.lsp.lspconfig").on_attach
 local on_init = require("configs.lsp.lspconfig").tsserver_on_init
 local capabilities = require("configs.lsp.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
+-- Remap todo-comments
+local map = vim.keymap.set
+map("n", "<leader>t", "")
+map("n", "<leader>tt", ":TodoTrouble<CR>", { silent = true, noremap = true })
 
-local TSOrganizeImports = function()
-  vim.lsp.buf.code_action {
-    apply = true,
-    context = {
-      only = { "source.organizeImports" },
-      diagnostics = {},
-    },
-  }
-end
-local TSRemoveUnused = function()
-  vim.lsp.buf.code_action {
-    apply = true,
-    context = {
-      only = { "source.removeUnused" },
-      diagnostics = {},
-    },
-  }
-end
-local TSRemoveUnusedImports = function()
-  vim.lsp.buf.code_action {
-    apply = true,
-    context = {
-      only = { "source.removeUnusedImports" },
-      diagnostics = {},
-    },
-  }
-end
-local TSSortImports = function()
-  vim.lsp.buf.code_action {
-    apply = true,
-    context = {
-      only = { "source.organizeImports" },
-      diagnostics = {},
-    },
-  }
-end
-local TSAddMissingImports = function()
-  vim.lsp.buf.code_action {
-    apply = true,
-    context = {
-      only = { "source.addMissingImports" },
-      diagnostics = {},
-    },
-  }
-end
-local TSFixAll = function()
-  vim.lsp.buf.code_action {
-    apply = true,
-    context = {
-      only = { "source.fixAll" },
-      diagnostics = {},
-    },
-  }
-end
+-- TS commands
+map(
+  "n",
+  "<leader>to",
+  ":TSToolsOrganizeImports<CR>",
+  { silent = true, noremap = true, desc = "Sort and remove unused imports" }
+)
+map("n", "<leader>ts", ":TSToolsSortImports<CR>", { silent = true, noremap = true, desc = "Sort imports" })
+map(
+  "n",
+  "<leader>tri",
+  ":TSToolsRemoveUnusedImports<CR>",
+  { silent = true, noremap = true, desc = "Remove unused imports" }
+)
+map(
+  "n",
+  "<leader>tru",
+  ":TSToolsRemoveUnused<CR>",
+  { silent = true, noremap = true, desc = "Remove all unused statements" }
+)
+map(
+  "n",
+  "<leader>ta",
+  ":TSToolsAddMissingImports<CR>",
+  { silent = true, noremap = true, desc = "Add imports for all statements that lack one and can be imported" }
+)
+map("n", "<leader>tff", ":TSToolsFixAll<CR>", { silent = true, noremap = true, desc = "Fix all fixable errors" })
+map(
+  "n",
+  "<leader>tg",
+  ":TSToolsGoToSourceDefinition<CR>",
+  { silent = true, noremap = true, desc = "Go to source definition" }
+)
+map(
+  "n",
+  "<leader>tfc",
+  ":TSToolsRenameFile<CR>",
+  { silent = true, noremap = true, desc = "Allow to rename current file and apply changes to connected files" }
+)
+map(
+  "n",
+  "<leader>tfr",
+  ":TSToolsFileReferences<CR>",
+  { silent = true, noremap = true, desc = "Find files that reference the current file" }
+)
 
-lspconfig.tsserver.setup {
+local options = {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-  },
-  commands = {
-    TSOrganizeImports = {
-      TSOrganizeImports,
-      description = "Organize Imports",
+
+  settings = {
+    expose_as_code_action = "all",
+
+    complete_function_calls = true,
+
+    tsserver_file_preferences = {
+      includeInlayParameterNameHints = "all",
     },
-    TSRemoveUnused = {
-      TSRemoveUnused,
-      description = "Remove unused",
-    },
-    TSFixAll = {
-      TSFixAll,
-      description = "Fix all",
-    },
-    TSSortImports = {
-      TSSortImports,
-      description = "Organize imports",
-    },
-    TSRemoveUnusedImports = {
-      TSRemoveUnusedImports,
-      description = "Remove Unused Imports",
-    },
-    TSAddMissingImports = {
-      TSAddMissingImports,
-      description = "Add Missing Imports",
-    },
-  },
-  completions = {
-    completeFunctionCalls = true,
-  },
-  init_options = {
-    preferences = {
-      includeInlayEnumMemberValueHints = true,
-      includeInlayFunctionLikeReturnTypeHints = true,
-      includeInlayFunctionParameterTypeHints = true,
-      includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-      includeInlayPropertyDeclarationTypeHints = true,
-      includeInlayVariableTypeHints = true,
+
+    tsserver_plugins = {
+      "@styled/typescript-styled-plugin",
     },
   },
 }
+
+return options
