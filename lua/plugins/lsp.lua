@@ -3,7 +3,10 @@ return {
     "neovim/nvim-lspconfig",
     event = "User FilePost",
     config = function()
-      require("neodev").setup {}
+      local filetype = vim.bo.filetype
+      if vim.tbl_contains({ "lua", "luadoc" }, filetype) then
+        require("neodev").setup {}
+      end
       require("configs.lsp.lspconfig").defaults()
       require "configs.lsp.server_configs.lspsetup"
     end,
@@ -73,5 +76,13 @@ return {
     dependencies = {
       "folke/neoconf.nvim",
     },
+  },
+
+  {
+    "pmizio/typescript-tools.nvim",
+    ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    opts = function()
+      require "configs.lsp.server_configs.tsserver"
+    end,
   },
 }

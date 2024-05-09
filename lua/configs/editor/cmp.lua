@@ -2,8 +2,6 @@ local cmp = require "cmp"
 
 dofile(vim.g.base46_cache .. "cmp")
 
-local filetype = vim.fn.expand "%:e"
-
 local compare = require "cmp.config.compare"
 compare.lsp_scores = function(entry1, entry2)
   local diff
@@ -117,7 +115,8 @@ local options = {
     compare.score,
     require("cmp-under-comparator").under,
     function()
-      if filetype == "cpp" or "c" or "h" or "hpp" then
+      local filetype = vim.bo.filetype
+      if vim.tbl_contains({ "cpp", "c", "h", "hpp" }, filetype) then
         require "clangd_extensions.cmp_scores"
       end
     end,
