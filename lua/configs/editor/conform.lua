@@ -11,6 +11,7 @@ local options = {
     javascript = { "prettier" },
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
+    astro = { "prettier" },
     css = { "prettier" },
     html = { "prettier" },
     cpp = { "clang_format" },
