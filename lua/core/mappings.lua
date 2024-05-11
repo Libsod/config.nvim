@@ -83,7 +83,7 @@ end, { desc = "Terminal Toggleable vertical term" })
 map({ "n", "t" }, "<A-h>", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
 end, { desc = "Terminal New horizontal term" })
-map({ "n", "t" }, "<A-i>", function()
+map({ "n", "t" }, "<A-f>", function()
   require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "Terminal Toggle Floating term" })
 map("t", "<ESC>", function()
