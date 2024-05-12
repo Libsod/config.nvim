@@ -19,6 +19,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+  command = "setlocal signcolumn=no",
+})
+
 vim.api.nvim_create_autocmd("BufRead", {
   group = vim.api.nvim_create_augroup("CargoKeymaps", { clear = true }),
   pattern = "Cargo.toml",
