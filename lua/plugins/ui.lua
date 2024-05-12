@@ -84,7 +84,7 @@ return {
 
   {
     "NvChad/nvim-colorizer.lua",
-    keys = { "<leader>pc" },
+    keys = { "<leader>cc" },
     ft = { "css", "typescript", "typescriptreact" },
     opts = { user_default_options = { names = false } },
     config = function(_, opts)
