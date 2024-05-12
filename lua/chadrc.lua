@@ -25,6 +25,7 @@ M.ui = {
     NoiceCmdline = { fg = "sun" },
     CurSearch = { fg = "Normal", bg = "NoiceCmdlineIcon" },
     LspInlayhint = { link = "@comment" },
+    Yank = { fg = "black2", bg = "cyan" },
   },
 
   hl_override = {
