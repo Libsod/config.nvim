@@ -30,6 +30,9 @@ return {
         config = function(_, opts)
           require("nvim-autopairs").setup(opts)
 
+          local Rule = require "nvim-autopairs.rule"
+          require("nvim-autopairs").add_rule(Rule("<", ">"))
+
           local cmp_autopairs = require "nvim-autopairs.completion.cmp"
           require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
