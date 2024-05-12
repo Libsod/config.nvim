@@ -47,7 +47,6 @@ o.splitbelow = true
 o.splitright = true
 o.undofile = true
 
-g.neovide_input_macos_alt_is_meta = true
 g.did_install_default_menus = 1
 g.did_install_syntax_menu = 1
 g.did_load_filetypes = 1

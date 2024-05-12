@@ -70,26 +70,26 @@ map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Nvimtree Toggle window" }
 map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "Nvimtree Focus window" })
 
 -- Terminal
-map("t", "<C-x>", "<C-\\><C-N>", { desc = "Terminal Escape terminal mode" })
+map("t", "<C-x>", "<C-\\><C-N>", { silent = true, desc = "Terminal Escape terminal mode" })
 map("n", "<leader>h", function()
   require("nvchad.term").new { pos = "sp", size = 0.4 }
-end, { desc = "Terminal New horizontal term" })
+end, { silent = true, desc = "Terminal New horizontal term" })
 map("n", "<leader>v", function()
   require("nvchad.term").new { pos = "vsp", size = 0.4 }
-end, { desc = "Terminal New vertical window" })
-map({ "n", "t" }, "<A-v>", function()
+end, { silent = true, desc = "Terminal New vertical window" })
+map({ "n", "t" }, "<M-v>", function()
   require("nvchad.term").toggle { pos = "vsp", size = 0.4, id = "vtoggleTerm" }
-end, { desc = "Terminal Toggleable vertical term" })
-map({ "n", "t" }, "<A-h>", function()
+end, { silent = true, desc = "Terminal Toggleable vertical term" })
+map({ "n", "t" }, "<M-h>", function()
   require("nvchad.term").toggle { pos = "sp", size = 0.4, id = "htoggleTerm" }
-end, { desc = "Terminal New horizontal term" })
-map({ "n", "t" }, "<A-f>", function()
+end, { silent = true, desc = "Terminal New horizontal term" })
+map({ "n", "t" }, "<M-f>", function()
   require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
-end, { desc = "Terminal Toggle Floating term" })
+end, { silent = true, desc = "Terminal Toggle Floating term" })
 map("t", "<ESC>", function()
   local win = vim.api.nvim_get_current_win()
   vim.api.nvim_win_close(win, true)
-end, { desc = "Terminal Close term in terminal mode" })
+end, { silent = true, desc = "Terminal Close term in terminal mode" })
 
 -- Which-key
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "Whichkey all keymaps" })
