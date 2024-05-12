@@ -72,16 +72,16 @@ map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "Nvimtree Focus window"
 -- Terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "Terminal Escape terminal mode" })
 map("n", "<leader>h", function()
-  require("nvchad.term").new { pos = "sp" }
+  require("nvchad.term").new { pos = "sp", size = 0.4 }
 end, { desc = "Terminal New horizontal term" })
 map("n", "<leader>v", function()
-  require("nvchad.term").new { pos = "vsp" }
+  require("nvchad.term").new { pos = "vsp", size = 0.4 }
 end, { desc = "Terminal New vertical window" })
 map({ "n", "t" }, "<A-v>", function()
-  require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+  require("nvchad.term").toggle { pos = "vsp", size = 0.4, id = "vtoggleTerm" }
 end, { desc = "Terminal Toggleable vertical term" })
 map({ "n", "t" }, "<A-h>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
+  require("nvchad.term").toggle { pos = "sp", size = 0.4, id = "htoggleTerm" }
 end, { desc = "Terminal New horizontal term" })
 map({ "n", "t" }, "<A-f>", function()
   require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
@@ -333,3 +333,8 @@ map("n", "gJ", ":TSJJoin<CR>", { silent = true, desc = "Join node under cursor" 
 
 -- Markdown-preview
 map("n", "<leader>mt", ":MarkdownPreviewToggle<CR>", { silent = true, desc = "Markdown-preview toggle" })
+
+-- Nvim-colorizer
+map("n", "<leader>cc", function()
+  require("colorizer").attach_to_buffer(0)
+end, { silent = true, noremap = true })
