@@ -81,7 +81,7 @@ return {
   {
     "pmizio/typescript-tools.nvim",
     ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-    opts = function()
+    config = function()
       require "configs.lsp.server_configs.tsserver"
     end,
   },

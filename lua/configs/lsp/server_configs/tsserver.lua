@@ -73,4 +73,4 @@ local options = {
   },
 }
 
-return options
+return require("typescript-tools").setup(options)
