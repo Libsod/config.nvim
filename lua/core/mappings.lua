@@ -72,10 +72,10 @@ map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "Nvimtree Focus window"
 -- Terminal
 map("t", "<C-x>", "<C-\\><C-N>", { silent = true, desc = "Terminal Escape terminal mode" })
 map("n", "<leader>h", function()
-  require("nvchad.term").new { pos = "sp", size = 0.4 }
+  require("nvchad.term").new { pos = "sp", size = 0.45 }
 end, { silent = true, desc = "Terminal New horizontal term" })
 map("n", "<leader>v", function()
-  require("nvchad.term").new { pos = "vsp", size = 0.4 }
+  require("nvchad.term").new { pos = "vsp", size = 0.7 }
 end, { silent = true, desc = "Terminal New vertical window" })
 map({ "n", "t" }, "<M-v>", function()
   require("nvchad.term").toggle { pos = "vsp", size = 0.4, id = "vtoggleTerm" }
