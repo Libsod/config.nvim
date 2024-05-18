@@ -10,20 +10,55 @@ local lspconfig = require "lspconfig"
 -- File-based lsp configs
 require "configs.lsp.server_configs.clangd"
 require "configs.lsp.server_configs.ruff_lsp"
+require "configs.lsp.server_configs.zls"
 
 local servers = {
+  -- Shell
+  "bashls",
+
+  -- Low-level
+  "asm_lsp",
+
+  -- Web
   "html",
   "cssls",
-  "zls",
-  "astro",
-  "svelte",
   "tailwindcss",
-  "marksman",
   "eslint",
+  "astro",
+
+  -- Markdown
+  "marksman",
+  "textlsp",
+
+  -- LaTeX
+  "texlab",
+
+  -- Markup langs
   "jsonls",
   "yamlls",
-  "jdtls",
+  "taplo",
+  "lemminx",
+
+  -- Docker
+  "docker_compose_language_service",
+  "dockerls",
+
+  -- Sql
+  "sqls",
+
+  -- Build systems
+  "autotools_ls",
+
+  -- Odin
   "ols",
+
+  -- Java
+  "jdtls",
+
+  -- GLSL
+  "glsl_analyzer",
+
+  -- Gleam
   "gleam",
 }
 
