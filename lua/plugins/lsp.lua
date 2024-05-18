@@ -60,7 +60,6 @@ return {
 
   {
     "lawrence-laz/neotest-zig",
-    branch = "v1.2.0",
     ft = { "zig" },
   },
 
