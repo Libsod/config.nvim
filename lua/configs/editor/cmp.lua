@@ -29,8 +29,34 @@ local formatting_style = {
 }
 
 local options = {
+
+  preselect = cmp.PreselectMode.Item,
+
   completion = {
-    completeopt = "menu,menuone",
+    completeopt = "menuone",
+  },
+
+  sorting = {
+    priority_weight = 2,
+    comparators = {
+      compare.offset, -- Items closer to cursor will have lower priority
+      compare.exact,
+      compare.lsp_scores,
+      -- compare.scopes,
+      compare.score,
+      compare.recently_used,
+      require("cmp-under-comparator").under,
+      function()
+        local filetype = vim.bo.filetype
+        if vim.tbl_contains({ "cpp", "c", "h", "hpp" }, filetype) then
+          require "clangd_extensions.cmp_scores"
+        end
+      end,
+      compare.sort_text,
+      compare.kind,
+      compare.length,
+      compare.order,
+    },
   },
 
   window = {
@@ -98,49 +124,10 @@ local options = {
       "i",
       "s",
     }),
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      fallback()
-    end, {
-      "i",
-      "s",
-    }),
-  },
-
-  comparators = {
-    compare.offset, -- Items closer to cursor will have lower priority
-    compare.exact,
-    compare.scopes,
-    compare.lsp_scores,
-    compare.recently_used,
-    compare.score,
-    require("cmp-under-comparator").under,
-    function()
-      local filetype = vim.bo.filetype
-      if vim.tbl_contains({ "cpp", "c", "h", "hpp" }, filetype) then
-        require "clangd_extensions.cmp_scores"
-      end
-    end,
-    compare.sort_text,
-    compare.kind,
-    compare.length,
-    compare.order,
   },
 
   sources = {
-    {
-      name = "nvim_lsp",
-      max_item_count = 100,
-      entry_filter = function(entry, ctx)
-        local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
-        if kind == "Snippet" and ctx.prev_context.filetype == "java" then
-          return false
-        end
-        if kind == "Text" then
-          return false
-        end
-        return true
-      end,
-    },
+    { name = "nvim_lsp", max_item_count = 100 },
     { name = "luasnip" },
     { name = "luasnip_choice" },
     { name = "nvim_lua" },
