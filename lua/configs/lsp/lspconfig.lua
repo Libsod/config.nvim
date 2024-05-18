@@ -73,7 +73,6 @@ M.on_attach = function(client, bufnr)
   })
 end
 
--- disable semanticTokens
 M.on_init = function(client, _)
   def_on_init(client, _)
 end
@@ -95,6 +94,11 @@ M.clangd_on_init = function(client, _)
   def_on_init(client, _)
   require("clangd_extensions.inlay_hints").setup_autocmd()
   require("clangd_extensions.inlay_hints").set_inlay_hints()
+end
+
+M.zls_on_init = function(client, _)
+  def_on_init(client, _)
+  vim.g.zig_fmt_parse_errors = 0
 end
 
 M.rust_analyzer_on_init = function(client, _)
