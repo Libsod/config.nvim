@@ -1,31 +1,31 @@
 local options = {
   ensure_installed = {
     -- Shell
-    "bashls",
+    "bash-language-server",
 
     -- Low-level
     "clangd",
     "clang-format", -- formatter
     "zls",
-    "rust_analyzer",
-    "asm_lsp",
+    "rust-analyzer",
+    "asm-lsp",
     "asmfmt", -- formatter
 
     -- Web
-    "html",
-    "cssls",
+    "html-lsp",
+    "css-lsp",
     "prettier", -- formatter
-    "tailwindcss",
-    "tsserver",
-    "eslint",
-    "astro",
+    "tailwindcss-language-server",
+    "typescript-language-server",
+    "eslint-lsp",
+    "astro-language-server",
 
     -- Python
     "pyright",
-    "ruff_lsp",
+    "ruff-lsp",
 
     -- Lua
-    "lua_ls",
+    "lua-language-server",
     "stylua", -- formatter
 
     -- Markdown
@@ -36,28 +36,33 @@ local options = {
     "texlab",
 
     -- Markup config langs
-    "jsonls",
-    "htmlls",
-    "yamlls",
+    "json-lsp",
+    "yaml-language-server",
     "taplo",
     "lemminx",
 
     -- Nix
     -- nixd - LSP (Not available at Mason)
-    "nixpkgs_fmt",
+    "nixpkgs-fmt",
     -- nixfmt -- formatter (Not available at Mason)
 
     -- Docker
-    "docker_compose_language_service",
-    "dockerls",
+    "docker-compose-language-service",
+    "dockerfile-language-server",
 
     -- Sql
-    -- postgres_lsp
+    -- postgres_lsp (Not available at Mason)
     "sqls",
 
     -- Build system's langs
-    "autotools_ls",
-    "neocmake",
+    "autotools-language-server",
+    "neocmakelsp",
+
+    -- Odin
+    "ols",
+
+    -- Java
+    "jdtls",
 
     -- OpenGL
     "glsl_analyzer",
