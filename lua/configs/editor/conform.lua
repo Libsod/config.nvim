@@ -7,6 +7,7 @@ local options = {
   },
 
   formatters_by_ft = {
+    asm = { "asmfmt" },
     lua = { "stylua" },
     javascript = { "prettier" },
     typescript = { "prettier" },
@@ -18,6 +19,7 @@ local options = {
     c = { "clang_format" },
     yaml = { "prettier" },
     json = { "prettier" },
+    nix = { "nixpkgs_fmt" },
   },
 }
 
