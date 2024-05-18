@@ -62,7 +62,7 @@ vim.g.rustaceanvim = {
           },
         },
         lens = {
-          run = { enable = false },
+          run = { enable = true },
         },
         completion = {
           fullFunctionSignatures = { enable = true },
@@ -93,7 +93,7 @@ vim.g.rustaceanvim = {
         },
         signatureInfo = {
           documentation = {
-            enable = false,
+            enable = true,
           },
         },
       },
