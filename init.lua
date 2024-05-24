@@ -41,7 +41,7 @@ local function neovide_config()
   vim.g.neovide_no_idle = false
   vim.g.neovide_refresh_rate_idle = 30
   vim.g.neovide_profiler = false
-  vim.g.neovide_input_macos_alt_is_meta = true
+  vim.g.neovide_input_macos_option_key_is_meta = "both"
   vim.g.neovide_cursor_antialiasing = true
   vim.g.neovide_cursor_animate_in_insert_mode = true
   vim.g.neovide_cursor_animate_command_line = true
