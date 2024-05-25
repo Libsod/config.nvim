@@ -37,7 +37,7 @@ local function neovide_config()
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_refresh_rate = 120
-  vim.g.neovide_cursor_animation_length = 0.045
+  vim.g.neovide_cursor_animation_length = 0.04
   vim.g.neovide_no_idle = false
   vim.g.neovide_refresh_rate_idle = 30
   vim.g.neovide_profiler = false
