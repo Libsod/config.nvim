@@ -8,4 +8,13 @@ lspconfig.ruff_lsp.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
+  init_options = {
+    settings = {
+      args = {
+        "--select=E,F,UP,N,I,ASYNC,S,PTH",
+        "--respect-gitignore",
+        "--target-version=py312",
+      },
+    },
+  },
 }
