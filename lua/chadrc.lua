@@ -23,7 +23,7 @@ M.ui = {
     NoiceCmdlinePopupTitle = { fg = "red" },
     NoiceLspProgressTitle = { link = "NoiceCmdlinePopupTitle" },
     NoiceCmdline = { fg = "sun" },
-    CurSearch = { fg = "Normal", bg = "NoiceCmdlineIcon" },
+    CurSearch = { fg = "black2", bg = "cyan" },
     LspInlayhint = { link = "@comment" },
     Yank = { fg = "black2", bg = "cyan" },
   },
