@@ -119,7 +119,8 @@ map("n", "gc", ":HopChar1MW<CR>", { silent = true, noremap = true })
 map("n", "<leader>g2c", ":HopChar2MW<CR>", { silent = true, noremap = true })
 
 -- Trouble
-map("n", "<leader>q", ":TroubleToggle<CR>", { silent = true, noremap = true })
+map("n", "<leader>q", ":Trouble diagnostics toggle<CR>", { silent = true, noremap = true })
+map("n", "<leader>lt", ":Trouble lsp toggle<CR>", { silent = true, noremap = true })
 
 -- TodoTrouble
 map("n", "<leader>t", ":TodoTrouble<CR>", { silent = true, noremap = true })
