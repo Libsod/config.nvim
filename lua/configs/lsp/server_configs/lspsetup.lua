@@ -83,6 +83,18 @@ lspconfig.pyright.setup {
   },
 }
 
+lspconfig.gopls.setup {
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
+}
+
 lspconfig.neocmake.setup {
   on_attach = on_attach,
   on_init = on_init,
