@@ -138,7 +138,7 @@ local options = {
       opts = {
         lang = "markdown",
         replace = true,
-        render = "plain",
+        render = "markdown",
         format = { "{message}" },
         win_options = { concealcursor = "n", conceallevel = 3 },
       },

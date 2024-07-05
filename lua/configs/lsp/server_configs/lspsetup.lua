@@ -2,9 +2,6 @@ local on_attach = require("configs.lsp.lspconfig").on_attach
 local on_init = require("configs.lsp.lspconfig").on_init
 local capabilities = require("configs.lsp.lspconfig").capabilities
 
-vim.notify = require("noice").notify
-require("lspconfig.ui.windows").default_options.border = "rounded"
-
 local lspconfig = require "lspconfig"
 
 -- File-based lsp configs
