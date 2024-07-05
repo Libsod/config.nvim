@@ -1,6 +1,10 @@
 ---@type ChadrcConfig
 local M = {}
 
+M.lsp = {
+  signature = false,
+}
+
 M.ui = {
   theme = "catppuccin",
 
