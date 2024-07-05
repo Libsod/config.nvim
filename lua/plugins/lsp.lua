@@ -84,12 +84,4 @@ return {
       require "configs.lsp.server_configs.tsserver"
     end,
   },
-
-  {
-    "tact-lang/tact.vim",
-    ft = { "tact" },
-    init = function()
-      vim.g.tact_style_guide = 1
-    end,
-  },
 }
