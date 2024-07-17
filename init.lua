@@ -48,6 +48,7 @@ local function neovide_config()
   vim.g.neovide_cursor_vfx_mode = "pixiedust"
   vim.g.neovide_cursor_vfx_particle_density = 8.0
   vim.g.neovide_unlink_border_highlights = true
+  vim.g.neovide_cursor_animate_in_insert_mode = true
   vim.keymap.set("n", "<D-s>", ":w<CR>") -- Save
   vim.keymap.set("v", "<D-c>", '"+y') -- Copy
   vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
