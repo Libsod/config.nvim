@@ -101,16 +101,6 @@ return {
   },
 
   {
-    "karb94/neoscroll.nvim",
-    enabled = false,
-    keys = { "<C-d>", "<C-u>" },
-
-    config = function()
-      require "configs.tools.neoscroll"
-    end,
-  },
-
-  {
     "phaazon/hop.nvim",
     cmd = { "HopWordMW", "HopLineMW", "HopChar1MW", "HopChar2MW" },
     branch = "v2", -- optional but strongly recommended
