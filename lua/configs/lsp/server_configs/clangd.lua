@@ -10,11 +10,11 @@ lspconfig.clangd.setup {
   capabilities = capabilities,
   cmd = {
     "clangd",
-    "-j=12",
+    "-j=10",
     "--enable-config",
     "--background-index",
     "--pch-storage=memory",
-    "--query-driver=/opt/homebrew/opt/llvm/bin/clang++,/opt/homebrew/opt/llvm/bin/clang",
+    "--query-driver=/usr/bin/clang++,/usr/bin/clang",
     "--clang-tidy",
     "--all-scopes-completion",
     "--completion-style=detailed",
