@@ -232,9 +232,6 @@ map(
 -- Noice
 map("n", "<leader>dn", ":NoiceDismiss<CR>", { silent = true, noremap = true })
 
--- Tabout
-map("i", "<C-f>", "<Tab>", { silent = true, noremap = true })
-
 -- Neotest
 map(
   "n",

@@ -163,14 +163,6 @@ return {
   },
 
   {
-    "abecodes/tabout.nvim",
-    event = "InsertCharPre",
-    config = function()
-      require "configs.tools.tabout"
-    end,
-  },
-
-  {
     "epwalsh/obsidian.nvim",
     version = "*",
     event = {
