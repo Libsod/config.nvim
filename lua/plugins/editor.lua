@@ -51,15 +51,8 @@ return {
   },
 
   {
-    "rmagatti/auto-session",
-    cmd = { "SessionSave", "SessionRestore" },
-    config = function()
-      require "configs.editor.auto-session"
-    end,
-  },
-
-  {
     "LunarVim/bigfile.nvim",
+    enabled = false,
     lazy = false,
     config = function()
       require "configs.editor.bigfile"
@@ -95,7 +88,7 @@ return {
       dofile(vim.g.base46_cache .. "treesitter")
       require("nvim-treesitter.configs").setup(opts)
     end,
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    -- dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
   },
 
   {
