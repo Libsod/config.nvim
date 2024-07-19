@@ -40,6 +40,14 @@ return {
   },
 
   {
+    "Civitasv/cmake-tools.nvim",
+    ft = { "c", "cpp", "h", "hpp" },
+    config = function()
+      require "configs.lsp.cmake-tools"
+    end,
+  },
+
+  {
     "ray-x/lsp_signature.nvim",
     event = { "LspAttach" },
   },
