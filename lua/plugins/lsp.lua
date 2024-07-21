@@ -45,6 +45,11 @@ return {
     config = function()
       require "configs.lsp.cmake-tools"
     end,
+    dependencies = {
+      "akinsho/toggleterm.nvim",
+      config = true,
+      version = "*",
+    },
   },
 
   {
