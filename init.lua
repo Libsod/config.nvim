@@ -37,13 +37,12 @@ local function neovide_config()
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_refresh_rate = 120
-  vim.g.neovide_cursor_animation_length = 0.035
+  vim.g.neovide_cursor_animation_length = 0.03
   vim.g.neovide_no_idle = false
   vim.g.neovide_refresh_rate_idle = 30
   vim.g.neovide_profiler = false
   vim.g.neovide_input_macos_option_key_is_meta = "both"
   vim.g.neovide_cursor_antialiasing = true
-  vim.g.neovide_cursor_animate_in_insert_mode = true
   vim.g.neovide_cursor_animate_command_line = true
   vim.g.neovide_cursor_vfx_mode = "pixiedust"
   vim.g.neovide_cursor_vfx_particle_density = 8.0
