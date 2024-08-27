@@ -3,10 +3,8 @@ local map = vim.keymap.set
 -- Faster opening of vim-cli mode
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
-map("", "<C-f>", "24jzz")
-map("", "<C-b>", "24kzz")
-map("", "<C-d>", "12jzz")
-map("", "<C-u>", "12kzz")
+map({ "n", "o", "x" }, "<C-d>", "12jzz")
+map({ "n", "o", "x" }, "<C-u>", "12kzz")
 
 -- Navigation in insert mode
 map("i", "<C-b>", "<ESC>^i", { desc = "Move Beginning of line" })
@@ -41,11 +39,6 @@ map("v", "<leader>sc", '"hy:%s/<C-r>h//g<Left><Left>')
 map("n", "<leader>fm", function()
   require("conform").format { lsp_fallback = true }
 end, { desc = "Format Files" })
-
--- Global lsp mappings
-map("n", "<leader>lf", vim.diagnostic.open_float, { desc = "Lsp floating diagnostics" })
-map("n", "[d", vim.diagnostic.goto_prev, { desc = "Lsp prev diagnostic" })
-map("n", "]d", vim.diagnostic.goto_next, { desc = "Lsp next diagnostic" })
 
 -- Tabufline
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "Buffer New" })
@@ -102,21 +95,6 @@ map("n", "<leader>wk", function()
   vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
 end, { desc = "Whichkey query lookup" })
 
--- Spider
-map({ "n", "o", "x" }, "w", function()
-  require("spider").motion "w"
-end, { noremap = true })
-map({ "n", "o", "x" }, "e", function()
-  require("spider").motion "e"
-end, { noremap = true })
-map({ "n", "o", "x" }, "b", function()
-  require("spider").motion "b"
-end, { noremap = true })
-map({ "n", "o", "x" }, "ge", function()
-  require("spider").motion "ge"
-end, { noremap = true })
-map("n", "cw", "c<CMD>lua require('spider').motion('e')<CR>")
-
 -- Hop
 map("n", "gw", ":HopWordMW<CR>", { silent = true, noremap = true })
 map("n", "<leader>k", ":HopLineMW<CR>", { silent = true, noremap = true })
@@ -124,7 +102,7 @@ map("n", "gc", ":HopChar1MW<CR>", { silent = true, noremap = true })
 map("n", "<leader>g2c", ":HopChar2MW<CR>", { silent = true, noremap = true })
 
 -- Trouble
-map("n", "<leader>q", ":Trouble diagnostics toggle<CR>", { silent = true, noremap = true })
+map("n", "<leader>q", ":Trouble diagnostics toggle filter.buf=0<CR>", { silent = true, noremap = true })
 map("n", "<leader>lt", ":Trouble lsp toggle<CR>", { silent = true, noremap = true })
 
 -- TodoTrouble
@@ -338,7 +316,7 @@ map("n", "gJ", ":TSJJoin<CR>", { silent = true, desc = "Join node under cursor" 
 map("n", "<leader>mt", ":MarkdownPreviewToggle<CR>", { silent = true, desc = "Markdown-preview toggle" })
 
 -- Nvim-colorizer
-map("n", "<leader>cc", function()
+map("n", "<leader>gc", function()
   require("colorizer").attach_to_buffer(0)
 end, { silent = true, noremap = true })
 

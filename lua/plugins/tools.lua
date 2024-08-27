@@ -73,6 +73,22 @@ return {
   },
 
   {
+    "stevearc/conform.nvim",
+    event = "BufWritePre",
+    config = function()
+      require "configs.editor.conform"
+    end,
+  },
+
+  {
+    "mfussenegger/nvim-lint",
+    ft = { "golang", "c", "cpp", "bash", "sh", "yaml", "json" },
+    config = function()
+      require "configs.tools.lint"
+    end,
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     opts = function()
@@ -111,7 +127,33 @@ return {
 
   {
     "chrisgrieser/nvim-spider",
-    keys = { "w", "e", "b", "ge" },
+    keys = {
+      {
+        "e",
+        "<cmd>lua require('spider').motion('e')<CR>",
+        mode = { "n", "o", "x" },
+      },
+      {
+        "w",
+        "<cmd>lua require('spider').motion('w')<CR>",
+        mode = { "n", "o", "x" },
+      },
+      {
+        "b",
+        "<cmd>lua require('spider').motion('b')<CR>",
+        mode = { "n", "o", "x" },
+      },
+      {
+        "ge",
+        "<cmd>lua require('spider').motion('ge')<CR>",
+        mode = { "n", "o", "x" },
+      },
+      {
+        "cw",
+        "c<CMD>lua require('spider').motion('e')<CR>",
+        mode = { "n", "o", "x" },
+      },
+    },
   },
 
   {
@@ -131,7 +173,23 @@ return {
       "sindrets/diffview.nvim", -- optional - Diff integration
       "ibhagwan/fzf-lua", -- optional
     },
-    config = true,
+    config = function()
+      local neogit = require "neogit"
+
+      neogit.setup {
+        mappings = {
+          commit_editor = {
+            ["q"] = "Close",
+            ["<m-s>"] = "Submit",
+            ["<m-a>"] = "Abort",
+          },
+          commit_editor_I = {
+            ["<m-s>"] = "Submit",
+            ["<m-a>"] = "Abort",
+          },
+        },
+      }
+    end,
   },
 
   {

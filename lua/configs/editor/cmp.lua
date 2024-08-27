@@ -45,7 +45,12 @@ local options = {
       -- compare.scopes,
       compare.score,
       compare.recently_used,
-      require("cmp-under-comparator").under,
+      function()
+        local filetype = vim.bo.filetype
+        if vim.tbl_contains({ "python" }, filetype) then
+          require "cmp-under-comparator.under"
+        end
+      end,
       function()
         local filetype = vim.bo.filetype
         if vim.tbl_contains({ "cpp", "c", "h", "hpp" }, filetype) then

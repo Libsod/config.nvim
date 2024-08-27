@@ -18,6 +18,10 @@ return {
 
   {
     "lewis6991/gitsigns.nvim",
+    cond = function()
+      local git_dir = vim.fn.finddir(".git", ".;")
+      return git_dir ~= ""
+    end,
     event = "User FilePost",
     opts = function()
       return require "configs.ui.gitsigns"
@@ -41,6 +45,7 @@ return {
 
   {
     "folke/noice.nvim",
+    enabled = false,
     event = "VeryLazy",
     config = function()
       require "configs.ui.noice"
@@ -49,10 +54,26 @@ return {
       "MunifTanjim/nui.nvim",
       {
         "rcarriga/nvim-notify",
+        enabled = false,
         config = function()
           require "configs.ui.notify"
         end,
       },
+    },
+  },
+
+  {
+    "Fildo7525/pretty_hover",
+    keys = {
+      {
+        "K",
+        ":lua require('pretty_hover').hover()<CR>",
+        mode = "n",
+        silent = true,
+      },
+    },
+    opts = {
+      border = "rounded",
     },
   },
 

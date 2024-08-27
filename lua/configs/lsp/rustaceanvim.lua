@@ -26,9 +26,23 @@ vim.g.rustaceanvim = {
           extraArgs = { "--profile", "rust-analyzer" },
           features = "all",
         },
-        rustfmt = {
-          extraArgs = { "+nightly" },
+        diagnostics = {
+          enable = true,
         },
+        check = {
+          command = "clippy",
+          workspace = true,
+          features = "all",
+          extraArgs = {
+            "--",
+            "-Wclippy::all",
+            "-Wclippy::pedantic",
+            -- "-Wclippy::cargo",
+          },
+        },
+        -- rustfmt = {
+        --   extraArgs = { "+nightly" },
+        -- },
         assist = {
           expressionFillDefault = "default",
         },

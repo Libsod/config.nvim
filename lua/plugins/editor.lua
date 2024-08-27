@@ -40,9 +40,12 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
-        "lukas-reineke/cmp-under-comparator",
       },
     },
+  },
+  {
+    "lukas-reineke/cmp-under-comparator",
+    ft = { "python" },
   },
 
   {
@@ -56,14 +59,6 @@ return {
     lazy = false,
     config = function()
       require "configs.editor.bigfile"
-    end,
-  },
-
-  {
-    "stevearc/conform.nvim",
-    event = "BufWritePre",
-    config = function()
-      require "configs.editor.conform"
     end,
   },
 

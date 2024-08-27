@@ -181,7 +181,7 @@ function autocmd.load_autocmds()
     lazy = {},
     bufs = {
       { "BufWritePre", "/tmp/*", "setlocal noundofile" },
-      { "BufWritePre", "COMMIT_EDITMSG", "setlocal noundofile" },
+      { "BufWritePre", "COMMIT_EDITMSG", "setlocal noundofile | set colorcolumn=72" },
       { "BufWritePre", "MERGE_MSG", "setlocal noundofile" },
       { "BufWritePre", "*.tmp", "setlocal noundofile" },
       { "BufWritePre", "*.bak", "setlocal noundofile" },

@@ -15,11 +15,36 @@ local options = {
     astro = { "prettier" },
     css = { "prettier" },
     html = { "prettier" },
-    cpp = { "clang_format" },
-    c = { "clang_format" },
+    cpp = { "clang-format" },
+    c = { "clang-format" },
+    rust = { "rustfmt" },
     yaml = { "prettier" },
     json = { "prettier" },
     nix = { "nixpkgs_fmt" },
+    go = { "gofumpt", "goimports-reviser" },
+    gomod = { "gofumpt", "goimports-reviser" },
+    gowork = { "gofumpt", "goimports-reviser" },
+    gotmpl = { "gofumpt", "goimports-reviser" },
+  },
+
+  formatters = {
+    -- C/C++
+    ["clang-format"] = {
+      prepend_args = {
+        "-style={ \
+        IndentWidth: 2, \
+        TabWidth: 2, \
+        UseTab: Never, \
+        AccessModifierOffset: 0, \
+        IndentAccessModifiers: true, \
+        PackConstructorInitializers: Never}",
+      },
+    },
+
+    -- Golang
+    ["goimports-reviser"] = {
+      prepend_args = { "-rm-unused" },
+    },
   },
 }
 

@@ -10,7 +10,7 @@ M.ui = {
 
   statusline = {
     theme = "vscode_colored",
-    order = { "mode", "file", "diagnostics", "git", "%=", "lsp", "cwd" },
+    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd" },
   },
 
   tabufline = {
@@ -28,7 +28,6 @@ M.ui = {
     NoiceLspProgressTitle = { link = "NoiceCmdlinePopupTitle" },
     NoiceCmdline = { fg = "sun" },
     CurSearch = { fg = "black2", bg = "cyan" },
-    LspInlayhint = { link = "@comment" },
     Yank = { fg = "black2", bg = "cyan" },
   },
 
@@ -44,6 +43,7 @@ M.ui = {
     Comment = { italic = true },
     CmpDoc = { link = "Normal" },
     CmpDocBorder = { bg = "blue" },
+    LspInlayHint = { fg = "#B9C2DE", bg = "#1A1A27" },
     ["@comment"] = { italic = true },
     ["TelescopeMatching"] = { bg = "NONE" },
   },

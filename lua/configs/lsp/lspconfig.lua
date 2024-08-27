@@ -5,6 +5,9 @@ local def_on_init = function(client, _)
   if client.supports_method "textDocument/semanticTokens" then
     client.server_capabilities.semanticTokensProvider = nil
   end
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "rounded",
+  })
 end
 
 M.toggle_inlay_hints = function()
@@ -18,10 +21,12 @@ M.on_attach = function(client, bufnr)
   end
 
   map("n", "gD", vim.lsp.buf.declaration, opts "Lsp Go to declaration")
-  map("n", "K", vim.lsp.buf.hover, opts "Lsp hover information")
   map("n", "<leader>sh", vim.lsp.buf.signature_help, opts "Lsp Show signature help")
   map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Lsp Add workspace folder")
   map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts "Lsp Remove workspace folder")
+  map("n", "<leader>lf", vim.diagnostic.open_float, { desc = "Lsp floating diagnostics" })
+  map("n", "[d", vim.diagnostic.goto_prev, { desc = "Lsp prev diagnostic" })
+  map("n", "]d", vim.diagnostic.goto_next, { desc = "Lsp next diagnostic" })
 
   -- Glance
   map("n", "gd", ":Glance definitions<CR>", { silent = true, noremap = true, desc = "Lsp Go to definition" })
@@ -43,10 +48,6 @@ M.on_attach = function(client, bufnr)
   end, opts "Lsp NvRenamer")
 
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Lsp Code action")
-
-  -- if client.supports_method "textDocument/inlayHint" and not vim.tbl_contains(excluded_servers, client.name) then
-  --   vim.lsp.inlay_hint.enable(bufnr, true)
-  -- end
 
   vim.api.nvim_create_autocmd("CursorHold", {
     buffer = bufnr,
@@ -94,6 +95,8 @@ M.clangd_on_init = function(client, _)
   def_on_init(client, _)
   require("clangd_extensions.inlay_hints").setup_autocmd()
   require("clangd_extensions.inlay_hints").set_inlay_hints()
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
 end
 
 M.zls_on_init = function(client, _)

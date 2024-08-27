@@ -37,7 +37,6 @@ local icons = {
 local options = {
   smart_insert = true,
   insert_closing_quote = true,
-  avoid_prerelease = true,
   autoload = true,
   autoupdate = true,
   autoupdate_throttle = 250,
@@ -46,7 +45,6 @@ local options = {
   thousands_separator = ",",
   notification_title = "Crates",
   curl_args = { "-sL", "--retry", "1" },
-  disable_invalid_feature_diagnostic = false,
   text = {
     loading = " " .. icons.misc.Watch .. "Loading",
     version = " " .. icons.ui.Check .. "%s",
@@ -102,7 +100,7 @@ local options = {
       loading = " " .. icons.misc.Watch,
     },
   },
-  src = {
+  completion = {
     insert_closing_quote = true,
     text = {
       prerelease = " " .. icons.diagnostics.Warning_alt .. "pre-release ",

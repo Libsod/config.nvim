@@ -28,6 +28,12 @@ local options = {
     "lua",
     "luadoc",
 
+    -- Golang
+    "go",
+    "gomod",
+    "gosum",
+    "gowork",
+
     -- Markdown
     "markdown",
     "markdown_inline",
@@ -73,6 +79,7 @@ local options = {
     "gitattributes",
     "gitcommit",
     "gitignore",
+    "diff",
 
     -- Misc
     "query",

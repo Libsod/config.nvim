@@ -2,12 +2,16 @@ local options = {
   cmake_command = "cmake", -- this is used to specify cmake command path
   ctest_command = "ctest", -- this is used to specify ctest command path
   cmake_use_preset = true,
-  cmake_regenerate_on_save = true, -- auto generate when save CMakeLists.txt
+  cmake_regenerate_on_save = false, -- auto generate when save CMakeLists.txt
   cmake_generate_options = {
     "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
     "-DCMAKE_TOOLCHAIN_FILE=~/.vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    "-DCMAKE_C_STANDARD=23",
+    "-DCMAKE_C_FLAGS=-Wall -Wextra -Wpedantic -Walloca -Wcast-qual -Wconversion -Wformat=2 -Wformat-security -Wnull-dereference -Wstack-protector -Wvla -Warray-bounds -Warray-bounds-pointer-arithmetic -Wassign-enum -Wbad-function-cast -Wconditional-uninitialized -Wconversion -Wfloat-equal -Wformat-type-confusion -Widiomatic-parentheses -Wimplicit-fallthrough -Wloop-analysis -Wpointer-arith -Wshift-sign-overflow -Wshorten-64-to-32 -Wswitch-enum -Wtautological-constant-in-range-compare -Wunreachable-code-aggressive -Wthread-safety -Wthread-safety-beta -Wcomma",
   },
-  cmake_build_options = { "-j 10" },
+  cmake_build_options = {
+    "-j 10",
+  },
   cmake_build_directory = function()
     return "build/${variant:buildType}"
   end,
