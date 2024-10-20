@@ -63,21 +63,6 @@ return {
   },
 
   {
-    "Fildo7525/pretty_hover",
-    keys = {
-      {
-        "K",
-        ":lua require('pretty_hover').hover()<CR>",
-        mode = "n",
-        silent = true,
-      },
-    },
-    opts = {
-      border = "rounded",
-    },
-  },
-
-  {
     "folke/paint.nvim",
     ft = { "lua" },
     config = function()
@@ -100,21 +85,6 @@ return {
     event = { "CursorHold", "CursorHoldI" },
     config = function()
       require "configs.ui.local-highlight"
-    end,
-  },
-
-  {
-    "NvChad/nvim-colorizer.lua",
-    keys = { "<leader>cc" },
-    ft = { "css", "typescript", "typescriptreact" },
-    opts = { user_default_options = { names = false } },
-    config = function(_, opts)
-      require("colorizer").setup(opts)
-
-      -- execute colorizer as soon as possible
-      vim.defer_fn(function()
-        require("colorizer").attach_to_buffer(0)
-      end, 0)
     end,
   },
 }

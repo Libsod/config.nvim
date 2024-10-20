@@ -63,6 +63,9 @@ local options = {
     -- Norg
     "norg",
 
+    -- C#
+    "c_sharp",
+
     -- Docker
     "dockerfile",
 

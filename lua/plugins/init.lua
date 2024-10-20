@@ -4,19 +4,23 @@ return {
   },
 
   {
-    "NvChad/base46",
-    branch = "v2.5",
+    "nvchad/base46",
     build = function()
       require("base46").load_all_highlights()
     end,
   },
 
   {
-    "NvChad/ui",
-    branch = "v2.5",
+    "nvchad/ui",
     lazy = false,
     config = function()
       require "nvchad"
     end,
+  },
+
+  {
+    "nvchad/volt",
+    "nvchad/menu",
+    "nvchad/minty",
   },
 }

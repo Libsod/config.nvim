@@ -77,9 +77,11 @@ local options = {
       detail = "PmenuSel",
     },
   },
+
   memory_usage = {
     border = border,
   },
+
   symbol_info = {
     border = border,
   },

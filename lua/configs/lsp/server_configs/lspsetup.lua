@@ -77,6 +77,10 @@ lspconfig.pyright.setup {
   },
 }
 
+lspconfig.omnisharp.setup {
+  cmd = { "dotnet", "/Users/qwislet/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+}
+
 lspconfig.gopls.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
@@ -99,18 +103,22 @@ lspconfig.gopls.setup {
 }
 
 lspconfig.neocmake.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  cmd = { "neocmakelsp", "--stdio" },
-  root_dir = function(fname)
-    return lspconfig.util.find_git_ancestor(fname)
-  end,
-  single_file_support = true, -- suggested
-  init_options = {
-    format = {
-      enable = true,
+  default_config = {
+    cmd = { "neocmakelsp", "--stdio" },
+    filetypes = { "cmake" },
+    root_dir = function(fname)
+      return lspconfig.util.find_git_ancestor(fname)
+    end,
+    single_file_support = true, -- suggested
+    on_attach = on_attach, -- on_attach is the on_attach function you defined
+    init_options = {
+      format = {
+        enable = true,
+      },
+      lint = {
+        enable = true,
+      },
+      scan_cmake_in_package = true, -- default is true
     },
-    scan_cmake_in_package = true, -- default is true
   },
 }

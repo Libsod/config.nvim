@@ -1,4 +1,4 @@
----@type ChadrcConfig
+---@class ChadrcConfig
 local M = {}
 
 M.lsp = {
@@ -6,8 +6,6 @@ M.lsp = {
 }
 
 M.ui = {
-  theme = "catppuccin",
-
   statusline = {
     theme = "vscode_colored",
     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd" },
@@ -16,6 +14,18 @@ M.ui = {
   tabufline = {
     order = { "treeOffset", "buffers", "tabs" },
   },
+
+  cmp = {
+    lspkind_text = true,
+    icons_left = true,
+    format_colors = {
+      tailwind = true,
+    },
+  },
+}
+
+M.base46 = {
+  theme = "catppuccin",
 
   hl_add = {
     NoiceCmdlineIcon = { fg = "pink" },
@@ -42,7 +52,7 @@ M.ui = {
     PmenuSel = { link = "CursorLine" },
     Comment = { italic = true },
     CmpDoc = { link = "Normal" },
-    CmpDocBorder = { bg = "blue" },
+    CmpDocBorder = { bg = "Normal" },
     LspInlayHint = { fg = "#B9C2DE", bg = "#1A1A27" },
     ["@comment"] = { italic = true },
     ["TelescopeMatching"] = { bg = "NONE" },

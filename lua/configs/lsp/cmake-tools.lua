@@ -6,8 +6,7 @@ local options = {
   cmake_generate_options = {
     "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
     "-DCMAKE_TOOLCHAIN_FILE=~/.vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake",
-    "-DCMAKE_C_STANDARD=23",
-    "-DCMAKE_C_FLAGS=-Wall -Wextra -Wpedantic -Walloca -Wcast-qual -Wconversion -Wformat=2 -Wformat-security -Wnull-dereference -Wstack-protector -Wvla -Warray-bounds -Warray-bounds-pointer-arithmetic -Wassign-enum -Wbad-function-cast -Wconditional-uninitialized -Wconversion -Wfloat-equal -Wformat-type-confusion -Widiomatic-parentheses -Wimplicit-fallthrough -Wloop-analysis -Wpointer-arith -Wshift-sign-overflow -Wshorten-64-to-32 -Wswitch-enum -Wtautological-constant-in-range-compare -Wunreachable-code-aggressive -Wthread-safety -Wthread-safety-beta -Wcomma",
+    "-G Ninja",
   },
   cmake_build_options = {
     "-j 10",

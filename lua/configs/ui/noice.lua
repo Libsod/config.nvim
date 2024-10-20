@@ -8,7 +8,7 @@ local options = {
         max_width = 115,
       },
       border = {
-        style = "rounded",
+        -- style = "rounded",
         padding = { 0, 1 },
       },
     },
@@ -33,7 +33,7 @@ local options = {
         height = 8,
       },
       border = {
-        style = "rounded",
+        -- style = "rounded",
         padding = { 0, 1 },
       },
       win_options = {

@@ -5,9 +5,6 @@ local def_on_init = function(client, _)
   if client.supports_method "textDocument/semanticTokens" then
     client.server_capabilities.semanticTokensProvider = nil
   end
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-  })
 end
 
 M.toggle_inlay_hints = function()
@@ -61,9 +58,9 @@ M.on_attach = function(client, bufnr)
           focusable = true,
           close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
           style = "minimal",
-          border = "rounded",
+          border = false,
           source = "always",
-          header = "",
+          header = false,
           prefix = "",
           scope = "cursor",
         },

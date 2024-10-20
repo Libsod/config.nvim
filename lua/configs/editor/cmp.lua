@@ -13,20 +13,20 @@ compare.lsp_scores = function(entry1, entry2)
   return (diff < 0)
 end
 
-local formatting_style = {
-  fields = { "abbr", "kind" },
-
-  format = function(_, item)
-    local icons = require "nvchad.icons.lspkind"
-    local icon = icons[item.kind]
-
-    icon = "" .. icon .. "  "
-    item.kind = (icon .. item.kind) or ""
-    item.menu = ""
-
-    return item
-  end,
-}
+-- local formatting_style = {
+--   fields = { "abbr", "kind" },
+--
+--   format = function(_, item)
+--     local icons = require "nvchad.icons.lspkind"
+--     local icon = icons[item.kind]
+--
+--     icon = "" .. icon .. "  "
+--     item.kind = (icon .. item.kind) or ""
+--     item.menu = ""
+--
+--     return item
+--   end,
+-- }
 
 local options = {
 
@@ -66,7 +66,7 @@ local options = {
 
   window = {
     completion = {
-      border = "rounded",
+      -- border = "rounded",
       winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,FloatBorder:FloatBorder,Search:None",
       scrollbar = false,
       col_offset = -3,
@@ -76,11 +76,12 @@ local options = {
       },
     },
     documentation = {
-      border = "rounded",
+      -- border = "rounded",
       winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
       scrollbar = false,
     },
   },
+
   experimental = {
     ghost_text = false,
   },
@@ -91,7 +92,7 @@ local options = {
     end,
   },
 
-  formatting = formatting_style,
+  -- formatting = formatting_style,
 
   matching = {
     disallow_partial_fuzzy_matching = false,
@@ -145,5 +146,7 @@ local options = {
     -- { name = "latex_symbols" },
   },
 }
+
+options = vim.tbl_deep_extend("force", options, require "nvchad.cmp")
 
 return options
