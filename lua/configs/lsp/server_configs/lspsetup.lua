@@ -110,7 +110,7 @@ lspconfig.neocmake.setup {
       return lspconfig.util.find_git_ancestor(fname)
     end,
     single_file_support = true, -- suggested
-    on_attach = on_attach, -- on_attach is the on_attach function you defined
+    on_attach = on_attach,      -- on_attach is the on_attach function you defined
     init_options = {
       format = {
         enable = true,

@@ -211,11 +211,11 @@ function autocmd.load_autocmds()
   local definitions = {
     lazy = {},
     bufs = {
-      { "BufWritePre", "/tmp/*", "setlocal noundofile" },
+      { "BufWritePre", "/tmp/*",         "setlocal noundofile" },
       { "BufWritePre", "COMMIT_EDITMSG", "setlocal noundofile | set colorcolumn=72" },
-      { "BufWritePre", "MERGE_MSG", "setlocal noundofile" },
-      { "BufWritePre", "*.tmp", "setlocal noundofile" },
-      { "BufWritePre", "*.bak", "setlocal noundofile" },
+      { "BufWritePre", "MERGE_MSG",      "setlocal noundofile" },
+      { "BufWritePre", "*.tmp",          "setlocal noundofile" },
+      { "BufWritePre", "*.bak",          "setlocal noundofile" },
 
       -- auto place to last edit
       {
@@ -233,11 +233,11 @@ function autocmd.load_autocmds()
       -- Check if file changed when its window is focus, more eager than 'autoread'
       { "FocusGained", "* checktime" },
       -- Equalize window dimensions when resizing vim window
-      { "VimResized", "*", [[tabdo wincmd =]] },
+      { "VimResized",  "*",          [[tabdo wincmd =]] },
     },
     ft = {
       { "FileType", "markdown", "set wrap" },
-      { "FileType", "make", "set noexpandtab shiftwidth=8 softtabstop=0" },
+      { "FileType", "make",     "set noexpandtab shiftwidth=8 softtabstop=0" },
       {
         "FileType",
         "*",

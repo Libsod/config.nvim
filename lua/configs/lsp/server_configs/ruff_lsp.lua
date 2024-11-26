@@ -4,7 +4,7 @@ local capabilities = require("configs.lsp.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 
-lspconfig.ruff_lsp.setup {
+lspconfig.ruff.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,

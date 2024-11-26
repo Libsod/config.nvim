@@ -41,7 +41,7 @@ return {
 
   {
     "Civitasv/cmake-tools.nvim",
-    ft = { "c", "cpp", "h", "hpp" },
+    ft = { "c", "cpp", "h", "hpp", "cmake" },
     config = function()
       require "configs.lsp.cmake-tools"
     end,
