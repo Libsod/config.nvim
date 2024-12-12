@@ -44,25 +44,6 @@ return {
   },
 
   {
-    "folke/noice.nvim",
-    enabled = false,
-    event = "VeryLazy",
-    config = function()
-      require "configs.ui.noice"
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      {
-        "rcarriga/nvim-notify",
-        enabled = false,
-        config = function()
-          require "configs.ui.notify"
-        end,
-      },
-    },
-  },
-
-  {
     "folke/paint.nvim",
     ft = { "lua" },
     config = function()
