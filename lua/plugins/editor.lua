@@ -43,6 +43,7 @@ return {
       },
     },
   },
+
   {
     "lukas-reineke/cmp-under-comparator",
     ft = { "python" },
@@ -55,7 +56,14 @@ return {
 
   {
     "LunarVim/bigfile.nvim",
-    enabled = false,
+    cond = function()
+      local file = vim.fn.expand("%:p")       -- Get the full path of the current file
+      if file == "" or vim.fn.filereadable(file) == 0 then
+        return false                          -- No file or unreadable file
+      end
+      local file_size = vim.fn.getfsize(file) -- Get the file size in bytes
+      return file_size >= 1024 * 1024         -- Load plugin if file size is >= 1 MB
+    end,
     lazy = false,
     config = function()
       require "configs.editor.bigfile"
@@ -96,7 +104,23 @@ return {
 
   {
     "Wansmer/treesj",
-    keys = { "gm", "gJ", "gS" },
+    keys = {
+      {
+        "gm",
+        "<cmd>lua require('treesj').toggle({ split = { recursive = true } })<CR>",
+        mode = { "n" },
+      },
+      {
+        "gs",
+        "<cmd>lua require('treesj').split({ recursive = true })<CR>",
+        mode = { "n" },
+      },
+      {
+        "gj",
+        "<cmd>lua require('treesj').join()<CR>",
+        mode = { "n" },
+      },
+    },
     config = function()
       require("treesj").setup { use_default_keymaps = false }
     end,

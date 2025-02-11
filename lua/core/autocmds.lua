@@ -151,6 +151,29 @@ vim.api.nvim_create_autocmd("BufRead", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.keymap.set("n", "gz", function()
+      local url = vim.fn.expand("<cfile>")
+      local file, line = url:match("^file://(.+)#L(%d+)$")
+      if file and line then
+        vim.cmd("edit " .. vim.fn.fnameescape(file))
+
+        vim.fn.cursor(tonumber(line), 0)
+        vim.wo.relativenumber = true
+        vim.o.number = true
+        vim.wo.cursorline = true
+
+        vim.cmd("buffer")
+      else
+        vim.cmd("normal! gf")
+      end
+    end, { buffer = true, desc = "Custom gf for Zig LSP URLs" })
+  end,
+})
+
+
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = vim.tbl_map(function(path)
     return vim.fs.normalize(vim.loop.fs_realpath(path))
@@ -237,6 +260,7 @@ function autocmd.load_autocmds()
     },
     ft = {
       { "FileType", "markdown", "set wrap" },
+      { "FileType", "man",      "set syntax=on" },
       { "FileType", "make",     "set noexpandtab shiftwidth=8 softtabstop=0" },
       {
         "FileType",

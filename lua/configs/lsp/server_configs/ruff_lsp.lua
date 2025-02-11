@@ -13,7 +13,7 @@ lspconfig.ruff.setup {
       args = {
         "--select=E,F,UP,N,I,ASYNC,S,PTH",
         "--respect-gitignore",
-        "--target-version=py312",
+        "--target-version=py313",
       },
     },
   },

@@ -30,7 +30,6 @@ map("n", "<C-k>", "<C-w>k", { desc = "Switch Window up" })
 -- File maps
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "Copy whole file" })
-map("n", "<C-p>", "G$vgg0", { desc = "Select whole file" })
 
 -- Replace visually selected text
 map("v", "<leader>sc", '"hy:%s/<C-r>h//g<Left><Left>')
@@ -156,30 +155,6 @@ map(
   { silent = true, noremap = true, desc = "Toggle Inlay Hints" }
 )
 
--- Auto-session
-map("n", "<leader>sr", ":SessionRestore<CR>", { silent = true, noremap = true, desc = "Session restore" })
-map("n", "<leader>ss", ":SessionSave<CR>", { silent = true, noremap = true, desc = "Session save" })
-map(
-  "n",
-  "<leader>fss",
-  ":lua require('auto-session.session-lens').search_session()<CR>",
-  { silent = true, noremap = true, desc = "Session search" }
-)
-
--- Substitute
-map("n", "s", function()
-  require("substitute").operator()
-end, { noremap = true })
-map("n", "ss", function()
-  require("substitute").line()
-end, { noremap = true })
-map("n", "S", function()
-  require("substitute").eol()
-end, { noremap = true })
-map("x", "s", function()
-  require("substitute").visual()
-end, { noremap = true })
-
 -- Spectre
 map("n", "<leader>S", ':lua require("spectre").toggle()<CR>', { silent = true, desc = "Toggle Spectre" })
 map(
@@ -206,9 +181,6 @@ map(
   ':lua require("spectre").open_file_search({select_word=true})<CR>',
   { silent = true, desc = "Search current word on current file" }
 )
-
--- Noice
-map("n", "<leader>dn", ":NoiceDismiss<CR>", { silent = true, noremap = true })
 
 -- Neotest
 map(
@@ -307,15 +279,5 @@ map(
   { silent = true, desc = "Opens a floating window with your merged lsp config" }
 )
 
--- Treesj
-map("n", "gm", ":TSJToggle<CR>", { silent = true, desc = "Toggle node under cursor" })
-map("n", "gS", ":TSJSplit<CR>", { silent = true, desc = "Split node under cursor" })
-map("n", "gJ", ":TSJJoin<CR>", { silent = true, desc = "Join node under cursor" })
-
 -- Markdown-preview
 map("n", "<leader>mt", ":MarkdownPreviewToggle<CR>", { silent = true, desc = "Markdown-preview toggle" })
-
--- Nvim-colorizer
-map("n", "<leader>gc", function()
-  require("colorizer").attach_to_buffer(0)
-end, { silent = true, noremap = true })

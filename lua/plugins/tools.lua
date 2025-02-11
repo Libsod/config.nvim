@@ -40,12 +40,12 @@ return {
   {
     "numToStr/Comment.nvim",
     keys = {
-      { "gcc", mode = "n", desc = "Comment toggle current line" },
-      { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
-      { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
-      { "gbc", mode = "n", desc = "Comment toggle current block" },
-      { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-      { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+      { "gcc", mode = "n",          desc = "Comment toggle current line" },
+      { "gc",  mode = { "n", "o" }, desc = "Comment toggle linewise" },
+      { "gc",  mode = "x",          desc = "Comment toggle linewise (visual)" },
+      { "gbc", mode = "n",          desc = "Comment toggle current block" },
+      { "gb",  mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+      { "gb",  mode = "x",          desc = "Comment toggle blockwise (visual)" },
     },
     config = function(_, opts)
       require("Comment").setup(opts)
@@ -111,7 +111,8 @@ return {
 
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+        build =
+        "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
       },
     },
   },
@@ -171,7 +172,7 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "sindrets/diffview.nvim", -- optional - Diff integration
-      "ibhagwan/fzf-lua", -- optional
+      "ibhagwan/fzf-lua",       -- optional
     },
     config = function()
       local neogit = require "neogit"
@@ -199,7 +200,64 @@ return {
 
   {
     "gbprod/substitute.nvim",
-    keys = { "s", "ss", "S" },
+    keys = {
+      {
+        "s",
+        "<cmd>lua require('substitute').operator()<cr>",
+        mode = { "n" },
+      },
+      {
+        "sc",
+        function()
+          vim.cmd("normal! ggVG")
+          require("substitute").visual()
+        end,
+        mode = { "n" },
+      },
+
+      {
+        "ss",
+        function()
+          require("substitute").line()
+        end,
+        mode = { "n" },
+      },
+      {
+        "S",
+        function()
+          require("substitute").eol()
+        end,
+        mode = { "n" },
+      },
+      {
+        "sx",
+        function()
+          require('substitute.exchange').operator()
+        end,
+        mode = { "n" },
+      },
+      {
+        "sxx",
+        function()
+          require('substitute.exchange').line()
+        end,
+        mode = { "n" },
+      },
+      {
+        "sX",
+        function()
+          require('substitute.exchange').visual()
+        end,
+        mode = { "x", "o" },
+      },
+      {
+        "sxc",
+        function()
+          require('substitute.exchange').cancel()
+        end,
+        mode = { "n" },
+      },
+    },
     opts = function()
       return require "configs.tools.substitute"
     end,

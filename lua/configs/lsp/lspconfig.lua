@@ -41,7 +41,7 @@ M.on_attach = function(client, bufnr)
   end, opts "Lsp List workspace folders")
 
   map("n", "<leader>lr", function()
-    require "nvchad.lsp.renamer"()
+    require "nvchad.lsp.renamer" ()
   end, opts "Lsp NvRenamer")
 
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Lsp Code action")
@@ -90,8 +90,6 @@ end
 
 M.clangd_on_init = function(client, _)
   def_on_init(client, _)
-  require("clangd_extensions.inlay_hints").setup_autocmd()
-  require("clangd_extensions.inlay_hints").set_inlay_hints()
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
 end
