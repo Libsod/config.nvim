@@ -41,7 +41,7 @@ This configuration is designed to be:
         *   Seamless Git integration via `Neogit` and `gitsigns.nvim`.
         *   Integrated TODO management with `todo-comments.nvim` and `trouble.nvim`.
     *   ⌨️ **Intuitive Keybindings**: Sensible default and custom keymappings, easily discoverable with `which-key.nvim`.
-    *   🦀 **Excellent Rust Development**: Dedicated support via `rustaceanvim` and `crates.nvim`.
+    *   🦀 **Excellent Rust Development Support**: Dedicated support via `rustaceanvim` and `crates.nvim`.
     *   💻 **Enhanced Terminal**: Integrated terminal capabilities (via NvChad's included terminal and `toggleterm.nvim` as a dependency).
     *   📝 **Obsidian Integration**: Built-in support for managing your Obsidian notes.
     *   🧪 **Integrated Testing**: A streamlined testing experience with `neotest` and various language adapters.
@@ -66,7 +66,7 @@ Here's a high-level overview of the configuration's directory structure and key 
 │     │     ├──  editor/ <- Plugin configurations related to editing
 │     │     │     └──  *.lua
 │     │     ├──  lsp/
-│     │     │     ├──  lspconfig.lua <- Main LSP server setup orchestrator
+│     │     │     ├──  lspconfig.lua <- Main LSP server setup
 │     │     │     ├──  plugins/ <- Configurations for LSP-enhancing plugins
 │     │     │     │     └──  *.lua
 │     │     │     └──  servers/ <- Specific configurations for individual LSP servers
