@@ -3,17 +3,13 @@
 </h1>
 
 <p align="center">
-    <a href="https://github.com/neovim/neovim/releases/tag/v0.11.0">
-    <img
+    <a href="https://github.com/neovim/neovim/releases/tag/v0.11.0"><img
         alt="Neovim Version Support"
-        src="https://img.shields.io/badge/Supports%20Nvim-v0.11%2B-A6D895?style=for-the-badge&colorA=363A4F&logo=neovim&logoColor=D9E0EE">
-    </a>
-    <a href="https://github.com/Libsod/config.nvim/issues">
-    <img
+        src="https://img.shields.io/badge/Supports%20Nvim-v0.11%2B-A6D895?style=for-the-badge&colorA=363A4F&logo=neovim&logoColor=D9E0EE"></a><!--
+ --><a href="https://github.com/Libsod/config.nvim/issues"><img
         alt="GitHub Issues"
-        src="https://img.shields.io/github/issues-raw/Libsod/config.nvim?colorA=363A4f&colorB=F5A97F&logo=github&logoColor=D9E0EE&style=for-the-badge">
-    </a>
-    <img
+        src="https://img.shields.io/github/issues-raw/Libsod/config.nvim?colorA=363A4f&colorB=F5A97F&logo=github&logoColor=D9E0EE&style=for-the-badge"></a><!--
+ --><img
         alt="GitHub Code Size"
         src="https://img.shields.io/github/languages/code-size/Libsod/config.nvim?colorA=363A4F&colorB=DDB6F2&logo=gitlfs&logoColor=D9E0EE&style=for-the-badge">
 </p>
