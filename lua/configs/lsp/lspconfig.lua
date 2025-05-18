@@ -25,7 +25,6 @@ local servers = {
   "html", -- HTML Language Server
   "cssls", -- CSS Language Server
   "tailwindcss", -- Tailwind CSS LSP (often needs specific setup)
-  -- "ts_ls", -- TypeScript/JavaScript (commented out, possibly handled by typescript-tools.nvim or another plugin)
   "eslint", -- ESLint LSP (for JavaScript/TypeScript linting)
   "astro", -- Astro framework LSP
 

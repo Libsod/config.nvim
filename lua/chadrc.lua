@@ -10,10 +10,14 @@ M.lsp = {
 
 -- Configurations for Mason, a Neovim plugin to manage LSP servers, linters, and formatters.
 M.mason = {
-  -- Specifies a list of packages that Mason should ensure are installed
-  -- beyond those managed by NvChad's default LSP setup or other specific plugin configurations.
-  -- This ensures "asmfmt" (an assembly language formatter) is available.
-  pkgs = { "asmfmt" },
+  -- Defines a list of packages for Mason to explicitly install and manage.
+  -- Useful for tools not automatically handled by lspconfig/conform/lint integrations,
+  -- or those requiring specific Mason-managed installations (e.g., 'asmfmt', or ensuring specific LSPs).
+  pkgs = {
+    "asmfmt", -- Assembly formatter
+    "rust-analyzer", -- LSP for Rust. Configuration handled by 'rustaceanvim' plugin.
+    "typescript-language-server", -- LSP for TypeScript. Configuration handled by 'typescript-tools.nvim' plugin.
+  },
 }
 
 -- UI specific configurations for the NvChad setup.
