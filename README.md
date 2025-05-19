@@ -38,7 +38,7 @@ This configuration is designed to be:
         *   Integrated TODO management with `todo-comments.nvim` and `trouble.nvim`.
     *   ⌨️ **Intuitive Keybindings**: Sensible default and custom keymappings, easily discoverable with `which-key.nvim`.
     *   🦀 **Excellent Rust Development Support**: Dedicated support via `rustaceanvim` and `crates.nvim`.
-    *   💻 **Enhanced Terminal**: Integrated terminal capabilities (via NvChad's included terminal and `toggleterm.nvim` as a dependency).
+    *   💻 **Enhanced Terminal**: Integrated terminal capabilities (via NvChad's included terminal and `toggleterm.nvim` as a dependency for cmake-tools.nvim).
     *   📝 **Obsidian Integration**: Built-in support for managing your Obsidian notes.
     *   🧪 **Integrated Testing**: A streamlined testing experience with `neotest` and various language adapters.
     *   ✨ **Code Quality**: Automatic code formatting (`conform.nvim`) and linting (`nvim-lint`) on save.
