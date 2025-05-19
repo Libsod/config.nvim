@@ -35,8 +35,8 @@ return {
       {
         -- Native FZF sorter for Telescope, significantly improving performance for large lists.
         "nvim-telescope/telescope-fzf-native.nvim",
-        -- Specifies build commands to compile the native extension.
-        build = "cmake -S. -Bbuild -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+        -- Specifies build command to compile the native extension.
+        build = "make",
       },
       -- Provides a way to use Telescope as a UI replacement for `vim.ui.select()`.
       "nvim-telescope/telescope-ui-select.nvim",
