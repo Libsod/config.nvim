@@ -70,7 +70,7 @@ function M.hover_opts()
 
   -- Return the configured options table for `vim.lsp.buf.hover()`.
   return {
-    border = "rounded", -- Use a rounded border style for the hover window.
+    border = "single", -- Use a single border style for the hover window.
     silent = true, -- Suppress any extra messages when showing the hover.
     title = nil, -- Do not display a title line in the hover window.
     wrap = true, -- Enable text wrapping for long lines within the hover window.
