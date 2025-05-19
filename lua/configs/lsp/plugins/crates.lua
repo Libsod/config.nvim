@@ -82,7 +82,7 @@ local options = {
     -- Visual style of the popup window.
     style = "minimal",
     -- Border style for the popup window.
-    border = "rounded",
+    border = "single",
     -- If true, shows the release date next to crate versions in the popup.
     show_version_date = true,
     -- If true, shows the version of dependencies listed in the popup.

@@ -31,8 +31,8 @@ local options = {
     max_height = math.ceil(vim.o.lines - 4), -- Leaves 4 lines for cmdline, statusline, etc.
     -- Sets the maximum width of the floating window, calculated as 75% of the current Neovim window width.
     max_width = math.ceil(vim.o.columns * 0.75),
-    -- Sets the border style for the floating window to "rounded".
-    border = "rounded",
+    -- Sets the border style for the floating window to "single".
+    border = "single",
     -- Additional options passed to `nvim_open_win` when creating the floating window.
     win_options = {
       -- Sets the transparency level of the floating window. 0 is fully opaque.
@@ -47,7 +47,7 @@ local options = {
   -- Configuration for the file preview window within oil.nvim.
   preview = {
     -- Sets the border style for the preview window to "rounded".
-    border = "rounded",
+    border = "single",
     -- max_width = 0.4, -- Example: Preview window takes 40% of oil window width.
     -- min_width = 30,  -- Example: Minimum width for preview.
   },

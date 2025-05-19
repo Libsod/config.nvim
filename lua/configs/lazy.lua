@@ -18,8 +18,8 @@ return {
   ui = {
     -- Enables line wrapping within lazy.nvim's UI elements for better readability of long lines.
     wrap = true,
-    -- Sets the border style for UI elements to "rounded".
-    border = "rounded",
+    -- Sets the border style for UI elements to "single".
+    border = "single",
     -- Defines custom icons used in lazy.nvim's UI to represent different states or elements.
     icons = {
       ft = "", -- Icon for filetype indicators.

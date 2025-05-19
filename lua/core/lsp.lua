@@ -83,7 +83,7 @@ M.defaults = function()
     underline = true, -- Underlines text with diagnostics.
     severity_sort = true, -- Sorts diagnostics by severity in lists like Trouble.
     float = { -- Configuration for the floating window that shows diagnostic details.
-      border = "rounded", -- Uses a rounded border.
+      border = "single", -- Uses a single border.
       style = "minimal", -- Uses a minimal style (less chrome).
       focusable = true, -- Allows the floating window to be focused.
       -- Events that will close the diagnostic floating window.
