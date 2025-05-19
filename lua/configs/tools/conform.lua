@@ -43,6 +43,7 @@ local options = {
       -- This directly passes a Clang-Format style configuration string.
       prepend_args = {
         "-style={ \
+        BasedOnStyle: LLVM, \
         IndentWidth: 2, \
         TabWidth: 2, \
         UseTab: Never, \
