@@ -1,15 +1,60 @@
 -- This file defines server-specific configuration options for gopls,
 -- the official Language Server for the Go programming language.
 
--- Imports NvChad's default 'on_init' function for LSP servers.
-local nvlsp = require "nvchad.configs.lspconfig"
-
 return {
+  -- LSP client flags specific to gopls.
+  flags = {
+    -- If true, the server will send incremental text updates instead of the full document content.
+    -- This can improve performance for large files.
+    allow_incremental_sync = true,
+    -- Debounces text change notifications sent to the server to the specified milliseconds.
+    -- This prevents overwhelming the server with updates during rapid typing.
+    debounce_text_changes = 500,
+  },
+
+  -- Client capabilities sent to the gopls server, indicating features supported by Neovim's LSP client.
+  capabilities = {
+    -- Capabilities related to text document features.
+    textDocument = {
+      -- Capabilities related to autocompletion.
+      completion = {
+        -- Indicates that the client supports receiving completion context information.
+        contextSupport = true,
+        -- Indicates that the server can dynamically register and unregister completion capabilities.
+        dynamicRegistration = true,
+        -- Specific capabilities for completion items.
+        completionItem = {
+          -- Client supports commit characters for completion items.
+          commitCharactersSupport = true,
+          -- Client supports marking completion items as deprecated.
+          deprecatedSupport = true,
+          -- Client supports preselecting a completion item.
+          preselectSupport = true,
+          -- Client supports insert/replace edit behavior for completion items.
+          insertReplaceSupport = true,
+          -- Client supports additional label details for completion items.
+          labelDetailsSupport = true,
+          -- Client supports snippet format for completion items.
+          snippetSupport = true,
+          -- Supported formats for documentation in completion items.
+          documentationFormat = { "markdown", "plaintext" },
+          -- Client supports resolving additional information for completion items.
+          resolveSupport = {
+            -- Properties that the client can resolve for completion items.
+            properties = {
+              "documentation",
+              "details",
+              "additionalTextEdits",
+            },
+          },
+        },
+      },
+    },
+  },
+
   -- Custom 'on_init' function that is called when the gopls server initializes
   -- for a new project or workspace.
-  on_init = function(client, bufnr)
-    -- Calls NvChad's default 'on_init' behavior first.
-    nvlsp.on_init(client, bufnr)
+  on_init = function(client, _)
     -- Explicitly disables gopls' document formatting capabilities.
     -- This is useful if you prefer to use a different, dedicated Go formatter
     -- (e.g., conform.nvim with gofumpt/goimports-reviser) and want to prevent
