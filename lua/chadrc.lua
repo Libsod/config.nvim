@@ -65,19 +65,19 @@ M.ui = {
         local result_text
         -- Conditionally format the output string based on available column width.
         if vim.o.columns > 110 then -- Plenty of space
-          -- Show icon, "LSP ~", and up to 3 client names.
-          result_text = string.format(" %sLSP ~ %s ", lsp_icon, names_str)
+          -- Show icon and up to 3 client names.
+          result_text = string.format(" %s [%s] ", lsp_icon, names_str)
         elseif vim.o.columns > 70 then -- Medium space
           if num_clients == 1 then
-            -- Show icon, "LSP ~", and the single client's name.
-            result_text = string.format(" %sLSP ~ %s ", lsp_icon, active_clients[1].name)
+            -- Show icon and the single client's name.
+            result_text = string.format(" %s [%s] ", lsp_icon, active_clients[1].name)
           else
-            -- Show icon, "LSP", and the count of active clients.
-            result_text = string.format(" %sLSP (%d) ", lsp_icon, num_clients)
+            -- Show icon and the count of active clients.
+            result_text = string.format(" %s [%d] ", lsp_icon, num_clients)
           end
         else -- Limited space
           -- Show only icon and "LSP".
-          result_text = string.format(" %sLSP ", lsp_icon)
+          result_text = string.format(" %s LSP ", lsp_icon)
         end
 
         -- Applies the 'St_lsp' highlight group (expected to be defined by NvChad's statusline theme)
@@ -93,7 +93,7 @@ M.ui = {
     -- "%=": Flexible spacer for alignment.
     -- "lsp_msg": Messages from the LSP server (e.g., progress).
     -- "diagnostics": Summary of code diagnostics (errors, warnings).
-    -- "lsp_clients": Custom LSP clients module.
+    -- "lsp_clients": Custom LSP clients module (defined above).
     -- "cwd": Current working directory.
     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp_clients", "cwd" },
   },
@@ -174,8 +174,10 @@ M.base46 = {
     CmpDoc = { link = "Normal" },
     -- Styles the border of nvim-cmp's documentation window to match the 'Normal' text background.
     CmpDocBorder = { bg = "Normal" },
+    -- Customizes the border of floating windows to be grey.
+    FloatBorder = { fg = "grey" },
     -- Defines a distinct foreground and background color for LSP inlay hints.
-    LspInlayHint = { fg = "#B9C2DE", bg = "#1A1A27" },
+    LspInlayHint = { fg = "#777994", bg = "NONE" },
     -- Specifically targets Tree-sitter's comment highlight group to render comments in italic.
     ["@comment"] = { italic = true },
     -- Modifies Telescope's matching text highlight, potentially for transparency or to rely on foreground color.
